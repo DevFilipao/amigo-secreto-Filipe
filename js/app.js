@@ -48,4 +48,14 @@ function sortear() {
 
 function reiniciar(evento) {
   // TODO impedir a navegação e restaurar o estado
+
+  if (evento) {
+    evento.preventDefault();
+  }
+ 
+  amigos.length = 0; // esvazia o mesmo array, sem criar um segundo estado
+  campoNome.value = "";
+  listaAmigos.textContent = "";
+  listaSorteio.textContent = "";
+  campoNome.focus();
 }
