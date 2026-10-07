@@ -15,10 +15,35 @@ function atualizarLista() {
 
 function adicionar() {
     // TODO ler validar guardar e atualizar
+
+    const nome = campoNome.value.trim();
+ 
+  if (nome === "") {
+    alert("Digite um nome antes de adicionar.");
+    campoNome.focus();
+    return;
+  }
+ 
+  amigos.push(nome);
+  atualizarLista();
+  campoNome.value = "";
+  campoNome.focus();
 }
+
+
 
 function sortear() {
   // TODO validar escolher e exibir
+
+  if (amigos.length < MINIMO_PARTICIPANTES) {
+    alert("Adicione pelo menos " + MINIMO_PARTICIPANTES + " participantes para sortear.");
+    return;
+  }
+ 
+  const indice = Math.floor(Math.random() * amigos.length);
+  const escolhido = amigos[indice];
+ 
+  listaSorteio.textContent = escolhido;
 }
 
 function reiniciar(evento) {
